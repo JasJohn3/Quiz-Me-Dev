@@ -9,6 +9,7 @@ body{
   background: linear-gradient(90deg, rgb(235, 18, 255)0%,rgb(0,102,255)100%);
   font-size: 3rem;
   min-width: 80rem;
+  justify-content: space-between;
 }
 .choice-container:hover{
   cursor: pointer;
@@ -24,4 +25,48 @@ body{
 .choic-text{
   padding: 2rem;
   width: 100%;
+}
+.correct{
+  background: linear-gradient(32deg,rgb(11,223,26)0%, rgb(1, 128, 47)100%);
+}
+.correct{
+  background: linear-gradient(32deg,rgb(230,29,1)0%, rgb(146, 20, 3)100%);
+}
+
+/* HUD */
+#hud{
+  display: flex;
+  justify-content: space-between;
+}
+.hud-prefix{
+  text-align: center;
+  font-size: 2rem;
+}
+.hud-main-text{
+  text-align: center;
+}
+
+#progressBar{
+  width: 20rem;
+  height: 3rem;
+  border:0.2rem solid rgb(11, 236, 11);
+  margin-top: 2rem;
+  border-radius: 50px;
+  overflow: hidden;
+}
+#progressBarFull{
+  height: 100%;
+  background: rgb(11, 236, 11);
+  width: 100%;
+}
+/* HUD */
+@media screen and (max-width:768px) {
+.choice-container{
+  min-width: 40rem;
+}  
+}
+@media screen and (max-width:400px) {
+  .choice-container{
+    min-width: 20rem;
+  }  
 }
