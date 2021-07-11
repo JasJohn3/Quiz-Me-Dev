@@ -1,0 +1,27 @@
+body{
+  color: #fff;
+}
+.choice-container{
+  display: flex;
+  margin-bottom: 0.8rem;
+  width: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgb(235, 18, 255)0%,rgb(0,102,255)100%);
+  font-size: 3rem;
+  min-width: 80rem;
+}
+.choice-container:hover{
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(8, 114, 244, 0.6);
+  transition: transform 150ms;
+  transform: scale(1.03);
+}
+
+.choic-prefix{
+  padding: 2rem 2.5rem;
+  color: #fff;
+}
+.choic-text{
+  padding: 2rem;
+  width: 100%;
+}
