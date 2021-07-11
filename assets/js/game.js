@@ -2,6 +2,8 @@ let choices = document.querySelector('#choices-ul');
 let question = document.querySelector('#question');
 let nextButton = document.querySelector('#next');
 let index = 0;
+let highScoreTime = 200;
+let setScoreTime = 0;
 console.log(choices);
 console.log(question);
 let questions =[
@@ -30,9 +32,11 @@ let questions =[
 
 
 startGame = () =>{
+  highScore(highScoreTime);
   createUI();
 }
 incrementGameLoop = ()=>{
+   
     index++;
     removeElements();
     createUI();
@@ -71,15 +75,28 @@ answerCheck = (e)=>{
     selectedLI.classList.add('correct');
     setTimeout(()=>{
       selectedLI.classList.remove('correct');
-    }, 3000); 
+    }, 3000);
+    incrementGameLoop(); 
   }else{
     selectedLI.classList.add('incorrect');
+    highScore(-25);
     setTimeout(()=>{
       selectedLI.classList.remove('incorrect');
-    }, 3000); 
+    }, 3000);
+    incrementGameLoop(); 
   }
 }
-
+highScore = (value)=>{
+  setScoreTime= setScoreTime + value;
+      setInterval(()=>{
+        let score = document.querySelector('#score');
+        score.textContent = setScoreTime;
+        setScoreTime--;
+        if (setScoreTime <= 0) {
+          clearInterval(highScore);
+        }
+      },1000);     
+}
 removeElements =()=>{
   let removeLIElements = Array.from(document.querySelectorAll('.choice-container'));
   removeLIElements.forEach(item =>{
