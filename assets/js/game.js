@@ -1,11 +1,11 @@
 let choices = document.querySelector('#choices-ul');
 let question = document.querySelector('#question');
 let nextButton = document.querySelector('#next');
+let score = document.querySelector('#score');
 let index = 0;
-let highScoreTime = 200;
-let setScoreTime = 0;
-console.log(choices);
-console.log(question);
+
+let setHighScore = 200;
+
 let questions =[
 {
   question: 'Select C',
@@ -32,7 +32,7 @@ let questions =[
 
 
 startGame = () =>{
-  highScore(highScoreTime);
+  timer();
   createUI();
 }
 incrementGameLoop = ()=>{
@@ -47,7 +47,12 @@ incrementGameLoop = ()=>{
 
 createUI = ()=>{
   if( index >= questions.length){
+    let container = document.querySelector('.container');
+    container.style.display = 'none';
     alert('Quiz Complete!');
+    score.textContent = localStorage.getItem('high-score');
+    var userName = prompt("Enter your Initials");
+    localStorage.setItem('user-name', userName);
   }
   question.textContent = questions[index].question;
   wrong = questions[index].wrong;
@@ -73,35 +78,39 @@ answerCheck = (e)=>{
   console.log(userAnswer);
   if(userAnswer === correctAnswer){
     selectedLI.classList.add('correct');
-    setTimeout(()=>{
-      selectedLI.classList.remove('correct');
-    }, 3000);
+    selectedLI.classList.remove('correct');
+    highScore(score.textContent)
     incrementGameLoop(); 
   }else{
     selectedLI.classList.add('incorrect');
-    highScore(-25);
-    setTimeout(()=>{
       selectedLI.classList.remove('incorrect');
-    }, 3000);
+      highScore(score.textContent)
     incrementGameLoop(); 
   }
 }
-highScore = (value)=>{
-  setScoreTime= setScoreTime + value;
-      setInterval(()=>{
-        let score = document.querySelector('#score');
-        score.textContent = setScoreTime;
-        setScoreTime--;
-        if (setScoreTime <= 0) {
-          clearInterval(highScore);
-        }
-      },1000);     
+highScore = (currentTime)=>{
+  console.log(currentTime);
+  localStorage.setItem('high-score', currentTime); 
+}
+
+timer=()=>{
+  let timeLeft = setHighScore;
+  console.log(timeLeft);
+  setInterval(()=>{
+    if (timeLeft <= 0){
+      clearInterval(timer);
+      timeLeft = 0;
+      score.textContent = timeLeft;
+    }
+    score.textContent = timeLeft;
+    timeLeft-=1;
+  },1000); 
 }
 removeElements =()=>{
   let removeLIElements = Array.from(document.querySelectorAll('.choice-container'));
   removeLIElements.forEach(item =>{
     item.remove();
-  })
+  });
 }
 choices.addEventListener('click', answerCheck);
 
