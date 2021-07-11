@@ -1,26 +1,27 @@
 let choices = document.querySelector('#choices-ul');
-let question = document.querySelector('#question')
+let question = document.querySelector('#question');
+let index = 0;
 console.log(choices);
 console.log(question);
 let questions =[
 {
   question: 'Select C',
-  wrong: ['A', 'B', 'D'],
+  wrong: ['A','B', 'C', 'D'],
   answer: 'C'
 },
 {
   question: 'Select D',
-  wrong: ['A', 'B', 'C'],
+  wrong: ['A','B', 'C', 'D'],
   answer: 'D'
 },
 {
   question: 'Select B',
-  wrong: ['A', 'C', 'D'],
+  wrong: ['A','B', 'C', 'D'],
   answer: 'B'
 },
 {
   question: 'Select A',
-  wrong: ['B', 'C', 'D'],
+  wrong: ['A','B', 'C', 'D'],
   answer: 'A'
 },
 
@@ -32,13 +33,10 @@ startGame = () =>{
 }
 
 createUI = ()=>{
-  let i = 0;
   
-  question.textContent = questions[i].question;
-  wrong = questions[i].wrong;
-  console.log(wrong);
+  question.textContent = questions[index].question;
+  wrong = questions[index].wrong;
   wrong.forEach(item =>{
-    console.log(item);
     let li = document.createElement('li');
     let i = 0;
     li.classList = 'choice-container';
@@ -48,15 +46,23 @@ createUI = ()=>{
     <p class="choice-text" data-number="${i}">${item}</p>
     `;
     choices.append(li);
-    i++
+    i++;
   })
 }
 
-correctAnswer = ()=>{
-
+answerCheck = (e)=>{
+  let selectedLI = e.target;
+  let userAnswer = e.target.querySelector('.choice-text').textContent;
+  let correctAnswer = questions[index].answer;
+  console.log(selectedLI);
+  console.log(correctAnswer);
+  console.log(userAnswer);
+  if(userAnswer === correctAnswer){
+    selectedLI.classList.add('correct');
+  }else{
+    selectedLI.classList.add('incorrect');
+  }
 }
-incorrectAnswer = ()=>{
 
-}
-
+choices.addEventListener('click', answerCheck);
 startGame();
