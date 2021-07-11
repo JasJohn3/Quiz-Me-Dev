@@ -104,5 +104,5 @@ removeElements =()=>{
   })
 }
 choices.addEventListener('click', answerCheck);
-nextButton.addEventListener('click', incrementGameLoop);
+
 startGame();

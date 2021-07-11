@@ -10,6 +10,15 @@
   <title>Quiz-Me || Dev Edition</title>
 </head>
 <body>
+  <header>
+    <h1 class="bg-primary title-s">Quiz Me</h1>
+    <nav>
+      <ul>
+        <li class="bg-primary link-container"><a href="./index.html">HOME</a></li>
+        <li class="bg-primary link-container"><a href="./highscores.html">HIGH SCORES</a></li>
+      </ul>
+    </nav>
+  </header>
   <div class="container">
     <div id="game" class="justify-center flex-column">
       <div id="hud">
@@ -25,13 +34,13 @@
           <p class="hud-prefix">
             Score
           </p>
-          <h1 class="hud-main-text" id="score">
+          <h1 class="hud-main-text title-p" id="score">
             0
           </h1>
         </div>
       </div>
       <!-- Questions and Choices -->
-      <h1 id="question">Question?</h1>
+      <h1 id="question" class="title-p">Question?</h1>
       <ul id="choices-ul">
       </ul>
     </div>
