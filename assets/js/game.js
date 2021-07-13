@@ -3,8 +3,8 @@ let question = document.querySelector('#question');
 let nextButton = document.querySelector('#next');
 let score = document.querySelector('#score');
 let index = 0;
-
-let setHighScore = 200;
+let timerFunction;
+let setHighScore = 30;
 
 let questions =[
 {
@@ -51,6 +51,7 @@ createUI = ()=>{
     container.style.display = 'none';
     alert('Quiz Complete!');
     score.textContent = localStorage.getItem('high-score');
+    clearInterval(timerFunction);
     var userName = prompt("Enter your Initials");
     localStorage.setItem('user-name', userName);
   }
@@ -78,14 +79,22 @@ answerCheck = (e)=>{
   console.log(userAnswer);
   if(userAnswer === correctAnswer){
     selectedLI.classList.add('correct');
-    selectedLI.classList.remove('correct');
+    
     highScore(score.textContent)
-    incrementGameLoop(); 
+    setTimeout(()=>{
+      selectedLI.classList.remove('correct');
+      incrementGameLoop();
+    }, 3000);
   }else{
     selectedLI.classList.add('incorrect');
-      selectedLI.classList.remove('incorrect');
       highScore(score.textContent)
-    incrementGameLoop(); 
+      if (setHighScore !=0) {
+        setHighScore -= 25;
+      }
+      setTimeout(()=>{
+        selectedLI.classList.remove('incorrect');
+        incrementGameLoop();
+      }, 3000);
   }
 }
 highScore = (currentTime)=>{
@@ -94,16 +103,14 @@ highScore = (currentTime)=>{
 }
 
 timer=()=>{
-  let timeLeft = setHighScore;
-  console.log(timeLeft);
-  setInterval(()=>{
-    if (timeLeft <= 0){
-      clearInterval(timer);
-      timeLeft = 0;
-      score.textContent = timeLeft;
+  timerFunction = setInterval(()=>{
+    score.textContent = setHighScore;
+    setHighScore-=1;
+    if (setHighScore <= 0){
+      clearInterval(timerFunction);
+      setHighScore = 0;
+      score.textContent = setHighScore;
     }
-    score.textContent = timeLeft;
-    timeLeft-=1;
   },1000); 
 }
 removeElements =()=>{
