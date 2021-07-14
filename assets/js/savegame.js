@@ -16,6 +16,10 @@ saveGame =(e)=>{
   }
   let playerInfoArr = []
   playerInfoArr.push(SavePlayer);
+  playerInfoArr.sort((a,b)=>{
+    return b[1]-a[1];
+  });
+  console.log(playerInfoArr);
   localStorage.setItem('player-info',JSON.stringify(playerInfoArr));
   setTimeout(()=>{
     saveScoreButton.textContent = 'Saved';
