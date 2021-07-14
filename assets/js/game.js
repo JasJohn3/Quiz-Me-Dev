@@ -2,6 +2,7 @@ let choices = document.querySelector('#choices-ul');
 let question = document.querySelector('#question');
 let nextButton = document.querySelector('#next');
 let score = document.querySelector('#score');
+let gameContainer = document.querySelector('#game');
 
 let index = 0;
 let timerFunction;
@@ -48,11 +49,12 @@ incrementGameLoop = ()=>{
 
 createUI = ()=>{
   if( index >= questions.length || setHighScore === 0){
+    gameContainer.innerHTML = ''
     let saveLink = document.createElement('a');
     saveLink.setAttribute('class','btn');
-    saveLink.setAttribute('src','./savgame.html');
+    saveLink.setAttribute('href','./savegame.html');
     saveLink.textContent = 'Save Score';
-    choices.append(saveLink);
+    gameContainer.append(saveLink);
     score.textContent = localStorage.getItem('high-score');
     clearInterval(timerFunction);
 
