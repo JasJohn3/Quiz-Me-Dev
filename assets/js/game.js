@@ -58,7 +58,7 @@ createUI = ()=>{
     gameContainer.append(saveLink);
     score.textContent = localStorage.getItem('high-score');
     clearInterval(timerFunction);
-    return window.location.assign('/savegame.html');
+    return window.location.assign('./savegame.html');
 
   }
   question.textContent = questions[index].question;
@@ -116,7 +116,7 @@ timer=()=>{
       clearInterval(timerFunction);
       setHighScore = 0;
       score.textContent = setHighScore;
-      return window.location.assign('/savegame.html');
+      return window.location.assign('./savegame.html');
     }
   },1000); 
 }

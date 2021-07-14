@@ -25,7 +25,7 @@ saveGame =(e)=>{
     saveScoreButton.textContent = 'Saved';
   },500)
   setTimeout(()=>{
-    return window.location.assign('/highscores.html');
+    return window.location.assign('./highscores.html');
   },1000);
   console.log(SavePlayer);
 }
