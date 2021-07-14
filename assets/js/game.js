@@ -47,14 +47,13 @@ incrementGameLoop = ()=>{
 
 
 createUI = ()=>{
-  if( index >= questions.length){
+  if( index >= questions.length || setHighScore === 0){
     let container = document.querySelector('.container');
     container.style.display = 'none';
-    alert('Quiz Complete!');
+    
     score.textContent = localStorage.getItem('high-score');
     clearInterval(timerFunction);
-    var userName = prompt("Enter your Initials");
-    localStorage.setItem('user-name', userName);
+
   }
   question.textContent = questions[index].question;
   wrong = questions[index].wrong;

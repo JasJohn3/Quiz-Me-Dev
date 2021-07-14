@@ -4,11 +4,13 @@ let userInitials = document.getElementById('save-form-name');
 saveGame =(e)=>{
   e.preventDefault();
   saveScoreButton.textContent = 'Saving...';
-
+  var userName = userInitials.value.trim();
+  localStorage.setItem('user-name', userName);
   let SavePlayer ={
-    name: userInitials.value,
-    score: localStorage.getItem('score')
+    name: userName,
+    score: localStorage.getItem('high-score')
   }
+  localStorage.setItem('player-info',JSON.parse(SavePlayer));
   setTimeout(()=>{
     saveScoreButton.textContent = 'Saved';
   },500)
