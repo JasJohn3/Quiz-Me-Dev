@@ -3,6 +3,9 @@ let userInitials = document.getElementById('save-form-name');
 // `<a href="./highscores.html" id="highscore-btn" class="btn">High Scores <i class="fas fa-crown"></i></a>`
 saveGame =(e)=>{
   e.preventDefault();
+  if (saveScoreButton.textContent === 'Saved') {
+    alert("Game has already been Saved!");
+  }
   saveScoreButton.textContent = 'Saving...';
   var userName = userInitials.value.trim();
   localStorage.setItem('user-name', userName);
