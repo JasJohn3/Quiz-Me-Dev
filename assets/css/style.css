@@ -43,6 +43,32 @@ a{
   color: #fff;
   opacity: 0.5;
 }
+.save-form-container{
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 100%;
+  font-size: 3rem;
+  min-width: 30rem;
+  text-decoration: none;
+  color: #fff;
+}
+#save-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+}
+#save-form input{
+  color: black;
+}
+#save-page{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .link-container:hover{
   opacity: 0.9;
 }
