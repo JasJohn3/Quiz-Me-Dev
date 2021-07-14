@@ -4,7 +4,7 @@ let nextButton = document.querySelector('#next');
 let score = document.querySelector('#score');
 let index = 0;
 let timerFunction;
-let setHighScore = 30;
+let setHighScore = 100;
 
 let questions =[
 {
