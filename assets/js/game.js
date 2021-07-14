@@ -84,7 +84,7 @@ answerCheck = (e)=>{
     setTimeout(()=>{
       selectedLI.classList.remove('correct');
       incrementGameLoop();
-    }, 3000);
+    }, 1000);
   }else{
     selectedLI.classList.add('incorrect');
       highScore(score.textContent)
@@ -94,7 +94,7 @@ answerCheck = (e)=>{
       setTimeout(()=>{
         selectedLI.classList.remove('incorrect');
         incrementGameLoop();
-      }, 3000);
+      }, 1000);
   }
 }
 highScore = (currentTime)=>{
