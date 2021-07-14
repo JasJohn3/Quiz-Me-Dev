@@ -7,13 +7,16 @@ saveGame =(e)=>{
     alert("Game has already been Saved!");
   }
   saveScoreButton.textContent = 'Saving...';
-  var userName = userInitials.value.trim();
+  let userName = userInitials.value.trim();
+  let userScore =localStorage.getItem('high-score')
   localStorage.setItem('user-name', userName);
   let SavePlayer ={
     name: userName,
-    score: localStorage.getItem('high-score')
+    score: userScore
   }
-  localStorage.setItem('player-info',JSON.stringify(SavePlayer));
+  let playerInfoArr = []
+  playerInfoArr.push(SavePlayer);
+  localStorage.setItem('player-info',JSON.stringify(playerInfoArr));
   setTimeout(()=>{
     saveScoreButton.textContent = 'Saved';
   },500)
