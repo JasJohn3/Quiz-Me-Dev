@@ -2,6 +2,7 @@ let choices = document.querySelector('#choices-ul');
 let question = document.querySelector('#question');
 let nextButton = document.querySelector('#next');
 let score = document.querySelector('#score');
+
 let index = 0;
 let timerFunction;
 let setHighScore = 100;
@@ -119,6 +120,7 @@ removeElements =()=>{
     item.remove();
   });
 }
+
 choices.addEventListener('click', answerCheck);
 
 startGame();

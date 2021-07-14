@@ -20,11 +20,15 @@
   </header>
   <main id="save-page">
     <form id="save-form">
-      <label for="name" class="bg-primary save-form-container">Enter Your Initials!</label>
-      <input id="name" type="text" class="save-form-container" placeholder="Initials!">
-      <button type="submit" class="btn">Save</button>
+      <label for="save-form-name" class="bg-primary save-form-container">Enter Your Initials!</label>
+      <input id="save-form-name" type="text" class="save-form-container" placeholder="Initials!">
+      <div id="high-score-link">
+        <button type="submit"  id="save-game" class="btn">Save</button>
+        <a href="./highscores.html" id="highscore-btn" class="btn">High Scores <i class="fas fa-crown"></i></a>
+      </div>
+      
     </form>
   </main>
-  <script src="./assets/js/game.js"></script>
+  <script src="./assets/js/savegame.js"></script>
 </body>
 </html>
