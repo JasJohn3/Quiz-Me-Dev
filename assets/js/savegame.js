@@ -10,7 +10,7 @@ saveGame =(e)=>{
     name: userName,
     score: localStorage.getItem('high-score')
   }
-  localStorage.setItem('player-info',JSON.parse(SavePlayer));
+  localStorage.setItem('player-info',JSON.stringify(SavePlayer));
   setTimeout(()=>{
     saveScoreButton.textContent = 'Saved';
   },500)

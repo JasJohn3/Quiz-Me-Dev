@@ -48,9 +48,11 @@ incrementGameLoop = ()=>{
 
 createUI = ()=>{
   if( index >= questions.length || setHighScore === 0){
-    let container = document.querySelector('.container');
-    container.style.display = 'none';
-    
+    let saveLink = document.createElement('a');
+    saveLink.setAttribute('class','btn');
+    saveLink.setAttribute('src','./savgame.html');
+    saveLink.textContent = 'Save Score';
+    choices.append(saveLink);
     score.textContent = localStorage.getItem('high-score');
     clearInterval(timerFunction);
 
