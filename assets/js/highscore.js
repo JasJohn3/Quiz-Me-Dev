@@ -1,8 +1,6 @@
 let players = JSON.parse(localStorage.getItem('player-info'));
 let ul = document.querySelector('#top-scores')
-console.log(players);
 
-console.log(ul);
 
 createHighScoreUI = ()=>{
   players.forEach(item => {
