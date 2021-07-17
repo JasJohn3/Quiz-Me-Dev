@@ -24,7 +24,6 @@ createHighScoreUI = ()=>{
       <p class="choice-text">Score: ${item.score}</p>
       `;
     }
-    console.log(li);
     ul.append(li);
   });
 }

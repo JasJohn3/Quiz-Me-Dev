@@ -19,7 +19,6 @@ saveGame =(e)=>{
   playerInfoArr.sort((a,b)=>{
     return b[1]-a[1];
   });
-  console.log(playerInfoArr);
   localStorage.setItem('player-info',JSON.stringify(playerInfoArr));
   setTimeout(()=>{
     saveScoreButton.textContent = 'Saved';
@@ -27,6 +26,5 @@ saveGame =(e)=>{
   setTimeout(()=>{
     return window.location.assign('./highscores.html');
   },1000);
-  console.log(SavePlayer);
 }
 saveScoreButton.addEventListener('click',saveGame);

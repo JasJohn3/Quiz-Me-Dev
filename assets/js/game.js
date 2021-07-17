@@ -80,9 +80,7 @@ answerCheck = (e)=>{
   let selectedLI = e.target;
   let userAnswer = e.target.querySelector('.choice-prefix').textContent;
   let correctAnswer = questions[index].answer;
-  console.log(selectedLI);
-  console.log(correctAnswer);
-  console.log(userAnswer);
+
   if(userAnswer === correctAnswer){
     selectedLI.classList.add('correct');
     
@@ -104,7 +102,7 @@ answerCheck = (e)=>{
   }
 }
 highScore = (currentTime)=>{
-  console.log(currentTime);
+  
   localStorage.setItem('high-score', currentTime); 
 }
 
