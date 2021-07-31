@@ -8,13 +8,14 @@ saveGame =(e)=>{
   }
   saveScoreButton.textContent = 'Saving...';
   let userName = userInitials.value.trim();
-  let userScore =localStorage.getItem('high-score')
+  let userScore =localStorage.getItem('high-score');
+  let playerInfoArr = JSON.parse(localStorage.getItem('player-info')) ||[]
   localStorage.setItem('user-name', userName);
   let SavePlayer ={
     name: userName,
     score: userScore
   }
-  let playerInfoArr = []
+  
   playerInfoArr.push(SavePlayer);
   playerInfoArr.sort((a,b)=>{
     return b[1]-a[1];
